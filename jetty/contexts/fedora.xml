@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+  <Set name="contextPath">/fedora</Set>
+  <Set name="war"><SystemProperty name="jetty.home" default="."/>/webapps/fedora.war</Set>
+  <Set name="overrideDescriptor"><SystemProperty name="jetty.home" default="."/>/etc/fedora-override-web.xml</Set>
+  
+  <Get name="securityHandler">
+    <Set name="loginService">
+      <New class="org.eclipse.jetty.security.HashLoginService">
+        <Set name="name">fcrepo4</Set>
+        <Set name="config"><SystemProperty name="jetty.home" default="."/>/resources/jetty-users.properties</Set>
+      </New>
+    </Set>
+  </Get>
+
+</Configure>
