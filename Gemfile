@@ -34,6 +34,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'sufia', '~> 6.0.0'
 gem 'kaminari', github: 'jcoyne/kaminari', branch: 'sufia'
+gem "omniauth-google-oauth2", '~> 0.2.6'
+gem 'figaro', '~> 1.0.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

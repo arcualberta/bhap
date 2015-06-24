@@ -1,0 +1,8 @@
+development:
+  GOOGLE_CLIENT_ID: 1084154514407-6dtajkfoirgei74q0jo06gj1jl8ac50r.apps.googleusercontent.com
+  GOOGLE_CLIENT_SECRET: qE00D3gwptS3WPi2k_VkhwuB
+  API_KEY: AIzaSyABzZWzxTI_eS-5TMUQ_Usn5JBE1In7sw4
+test:
+  GOOGLE_CLIENT_ID: 1084154514407-6dtajkfoirgei74q0jo06gj1jl8ac50r.apps.googleusercontent.com
+  GOOGLE_CLIENT_SECRET: qE00D3gwptS3WPi2k_VkhwuB
+  API_KEY: AIzaSyABzZWzxTI_eS-5TMUQ_Usn5JBE1In7sw4
