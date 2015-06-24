@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
       @user = User.find_by(email: data['email'])
       # XXX Find better place to put this e.g. omniauth_callbacks_controller.rb
       if @user             
-        @user.avatar.download!(data['image'].gsub(/sz\=\d+/, 'sz=200'));
+        @user.avatar.download!(data['image'].gsub(/sz\=\d+/, 'sz=300'));
         @user.display_name = data['name']
         @user.save 
       end
