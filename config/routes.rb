@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   blacklight_for :catalog
   # devise_for :users
+  mount Hydra::RoleManagement::Engine => '/'
+
   Hydra::BatchEdit.add_routes(self)
   # This must be the very last route in the file because it has a catch-all route for 404 errors.
     # This behavior seems to show up only in production mode.
@@ -56,16 +58,27 @@ Rails.application.routes.draw do
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+#   devise_for :users
+#   mount Hydra::RoleManagement::Engine => '/'
+# , skip: [:sessions], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
+#   devise_scope :user do
+#     get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
+#     get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+#   end
+
   devise_for :users, skip: [:sessions], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   devise_scope :user do
     get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
     get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
+
+  # Example resource route within a namespace:
+  #   namespace :admin do
+  #     # Directs /admin/products/* to Admin::ProductsController
+  #     # (app/controllers/admin/products_controller.rb)
+  #     resources :products
+  #   end
+ 
 end

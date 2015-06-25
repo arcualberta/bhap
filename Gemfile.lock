@@ -101,6 +101,7 @@ GEM
     bootstrap-sass (3.3.5)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bootstrap_form (2.3.0)
     breadcrumbs_on_rails (2.3.0)
     browse-everything (0.8.2)
       bootstrap-sass
@@ -230,6 +231,10 @@ GEM
       hydra-access-controls (= 9.1.4)
       hydra-core (= 9.1.4)
       rails (>= 3.2.6)
+    hydra-role-management (0.2.1)
+      blacklight
+      bootstrap_form
+      cancancan
     i18n (0.7.0)
     jbuilder (2.3.0)
       activesupport (>= 3.0.0, < 5)
@@ -599,6 +604,7 @@ DEPENDENCIES
   devise
   devise-guests (~> 0.3)
   figaro (~> 1.0.0)
+  hydra-role-management (= 0.2.1)
   jbuilder (~> 2.0)
   jettywrapper
   jquery-rails

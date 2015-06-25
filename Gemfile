@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'sufia', '~> 6.0.0'
 gem 'kaminari', github: 'jcoyne/kaminari', branch: 'sufia'
+gem 'hydra-role-management', '0.2.1'
 gem "omniauth-google-oauth2", '~> 0.2.6'
 gem 'figaro', '~> 1.0.0'
 
