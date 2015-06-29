@@ -7,9 +7,6 @@ class User < ActiveRecord::Base
   include Sufia::User
   include Sufia::UserUsageStats
 
-  # remove_const :groups
-  # remove_method Sufia::User::groups
-  # undef_method :groups
   has_many :user_groups
   has_many :my_groups, through: :user_groups, source: :group
 
