@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625200846) do
+ActiveRecord::Schema.define(version: 20150625212140) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id",       null: false
@@ -107,6 +107,12 @@ ActiveRecord::Schema.define(version: 20150625200846) do
 
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "local_authorities", force: :cascade do |t|
     t.string "name"
@@ -251,6 +257,16 @@ ActiveRecord::Schema.define(version: 20150625200846) do
     t.datetime "updated_at"
   end
 
+  create_table "user_groups", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_groups", ["group_id"], name: "index_user_groups_on_group_id"
+  add_index "user_groups", ["user_id"], name: "index_user_groups_on_user_id"
+
   create_table "user_stats", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "date"
@@ -293,8 +309,6 @@ ActiveRecord::Schema.define(version: 20150625200846) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.text     "group_list"
-    t.datetime "groups_last_update"
     t.string   "linkedin_handle"
     t.string   "orcid"
   end

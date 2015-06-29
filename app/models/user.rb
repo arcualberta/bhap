@@ -1,12 +1,17 @@
 class User < ActiveRecord::Base
   # Connects this user object to Hydra behaviors.
   include Hydra::User
- # Connects this user object to Role-management behaviors. 
- include Hydra::RoleManagement::UserRoles
-# Connects this user object to Sufia behaviors. 
+  # Connects this user object to Role-management behaviors. 
+  include Hydra::RoleManagement::UserRoles
+  # Connects this user object to Sufia behaviors. 
   include Sufia::User
   include Sufia::UserUsageStats
 
+  # remove_const :groups
+  # remove_method Sufia::User::groups
+  # undef_method :groups
+  has_many :user_groups
+  has_many :my_groups, through: :user_groups, source: :group
 
   # devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
@@ -28,7 +33,7 @@ class User < ActiveRecord::Base
 
     attr_accessible :email, :password, :password_confirmation
   end
-# Connects this user object to Blacklights Bookmarks. 
+  # Connects this user object to Blacklights Bookmarks. 
   include Blacklight::User
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -44,4 +49,10 @@ class User < ActiveRecord::Base
   def to_s
     email
   end
+
+  def groups
+    return my_groups
+  end
+
+
 end
