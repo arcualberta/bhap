@@ -5,4 +5,8 @@ class Group < ActiveRecord::Base
 	def to_s
 		name
 	end
+
+	def gsub(a, b)
+		name.gsub(a, b)
+	end
 end
