@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
   # Connects this user object to Sufia behaviors. 
   include Sufia::User
   include Sufia::UserUsageStats
-
+  
   has_many :user_groups
-  has_many :my_groups, through: :user_groups, source: :group
+  has_many :bhap_groups, through: :user_groups, source: :group
 
   # devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   end
 
   def groups
-    return my_groups
+    return bhap_groups
   end
 
 
